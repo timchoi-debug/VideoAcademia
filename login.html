@@ -1,0 +1,56 @@
+<?php include('auth_process.php') ?>
+<!DOCTYPE html>
+<html ng-app="VideoAcademia">
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+            #PurpleSection {
+                    background-color: purple;
+                    border: 30px solid purple;
+                }
+        </style>
+
+        <link href="login_form.css" rel="stylesheet">
+    </head>
+
+        <body>
+            
+             <div id="loginForm" style="text-align:center" style="vertical-align: middle;">
+                <h1>Login</h1>
+                <form name="log" action="auth_process.php" onsubmit="return validate()" method="POST">
+                    <p>
+                     <label for="uname">Username</label>
+                     <input type="text" placeholder="Enter Username" name="uname" required>
+                     </p>
+                     <p>
+                     <label for="pass">Password</label>
+                     <input type="text" placeholder="Enter Password" name="pass" required>
+                     </p>
+                     <p>
+                     <input type="submit" id="button" value="Login" />
+                     </p>
+                 </form>
+                 <div class="resetPassword">
+                    <a href="reset_password.html"><button>Forgot Password?</button></a>
+               </div>
+            </div>
+
+            <script>
+                function validate() {
+                    var username = document.log.uname.value;
+                    var password = document.log.pass.value;
+                    if (username.length == 0 || password.length == 0) {
+                        alert("Username or Password entries are empty");
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            </script>
+        </body>
+</html>

@@ -1,0 +1,18 @@
+body {
+    background: #eee;
+}
+
+#button {
+   color: blue;
+   padding: 7px;
+   margin-left: 70%; 
+}
+
+#loginForm {
+    border: solid gray 1px;
+    padding: 50px;
+    border-radius: 2px;
+    margin: 120px auto;
+    width: 25%;
+    vertical-align: middle;
+}

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html ng-app="VideoAcademia">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Welcome to VideoAcademia!
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+             .searchBox {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+
+    <body>
+        <main role="search">
+            <div class = "searchBox">
+                 <h1 style="text-align:center">Search to Learn!</h1>
+                <form method="POST">
+                <div class="input-group mb-3">
+                       <input type="text" name="search" class="form-control">
+                </div>
+                <p>
+                     <button type="submit" name="youtube" class="youtubeSearch">Search Youtube</button>
+                     <button type="submit" name="upload" class="videoSearch">Search Uploaded Videos</button>
+                </p>
+                </form>
+            </div>
+
+            <div class = "video_list">
+                <div class="container">
+                    <div class="row">
+                        {% for video in video_list %}
+                        <div class="card mb-4 shadow-sm">
+                            <img class="bd-placeholder-img-top" height="225" width="100%" src="{{ video.thumbnail }}" focusable="true" role="img" aria-label="Placeholder: thumbnail" preserveAspectRatio="xMidYMid slice"></img>
+                            <div class="card-body">
+                                <p class="card-text">{{ video.title }}</p>
+                                <div class="center">
+                                    <div class="btn-group">
+                                        <button type="submit" name="view" href="view_video.html" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text">{{ video.duration }} mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

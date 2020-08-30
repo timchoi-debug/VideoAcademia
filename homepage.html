@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="VideoAcademia">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Welcome to VideoAcademia!
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+            .login {
+                position: relative;
+                right: -85%;
+                top: 30px;
+            }
+
+            .register {
+                position: relative;
+                right: -90%;
+                top: 0px;
+
+            }
+
+            .searchBox {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            #PurpleSection {
+                background-color: purple;
+                border: 30px solid purple;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <section id="PurpleSection">
+            <div class="login"> 
+                <button onclick="window.location.href='login.html'" type="login">Login</button>
+            </div>
+            
+            <div class="register"> 
+                <button onclick="window.location.href='register.html'" type="register">Register</button>
+            </div>
+        </section>
+
+        <main role="search">
+            <img src="pencil.jpg" width="4000" height="1050">
+                <div class = "searchBox">
+                    <h1 style="text-align:center">Search to Learn!</h1>
+                    <form method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" name="search" class="form-control">
+                    </div>
+                    <p>
+                        <button type="submit" name="youtube" class="youtubeSearch">Search Youtube</button>
+                        <button type="submit" name="upload" class="videoSearch">Search Uploaded Videos</button>
+                    </p>
+                    </form>
+                </div>
+         </main>
+    </body>
+</html>
+
+
+
+

@@ -1,0 +1,44 @@
+<?php include('register_process.php') ?>
+<!DOCTYPE html>
+<html ng-app="VideoAcademia">
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+            #PurpleSection {
+                    background-color: purple;
+                    border: 30px solid purple;
+                }
+        </style>
+
+        <link href="login_form.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="loginForm" style="text-align:center" style="vertical-align: middle;">
+            <h1>Register</h1>
+            <form name="register" action="register_process.php" method="POST">
+                <p>
+                    <label for="uname">Username</label>
+                    <input type="text" placeholder="Enter New Username" name="uname" required>
+                </p>
+                <p>
+                    <label for="pass">Password</label>
+                    <input type="text" placeholder="Enter New Password" name="pass" required>
+                </p>
+                <p>
+                    <label for="pass">Email</label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+                </p>
+                <p>
+                    <button type="submit" class="btn" name="reg">Register</button>
+                </p>
+                <p>
+                    Have An Account? <a href="login.html">Log in Here</a>
+                </p>
+            </form>
+        </div>
+    </body>  
+</html>

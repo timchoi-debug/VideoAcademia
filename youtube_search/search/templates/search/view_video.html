@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="VideoAcademia">
+    <head>
+        <meta charset="utf-8">
+        <title>Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            body {
+                background-color: tan;
+            }
+
+            .comments {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="video">
+            <?php 
+            $id = "VIDEO ID";
+            $videoTitle = file_get_contents("http://gdata.youtube.com/feeds/api/videos/${id}?v=2&fields=title");
+
+            preg_match("/<title>(.+?)<\/title>/is", $videoTitle, $titleOfVideo);
+            $videoTitle = $titleOfVideo[1];
+            ?>
+            <h1 style="text-align:center;"> <?php echo $videoTitle; ?> </h1>
+            <iframe width="1000" height="600" src="https://www.youtube.com/embed/INBD4fymu-I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <?php 
+            echo "<div class="comments">
+                <form name="commentLine" method="POST" action=' " .changeComments($connection) "'>
+                    <input type='hidden' name='id' value='Anonymous'>
+                    <input type='hidden' name='date' value = ' " .date('Y-m-d H:i:s'). "'>
+                    <textarea name='msg'></textarea>
+                    <br>
+                    <button type='submit' name='enterMsg'>Submit Message</button>
+                </form>
+            </div>";
+        ?>        
+    </body>
+</html>
+
+<?php
+    function changeComments($connection) {
+        if (isset($_POST['enterMsg'])) {
+            $id = $_POST['id'];
+            $date = $_POST['date'];
+            $message = $_POST['msg'];
+
+            $new_cmd "INSERT INTO comments (id, date, message) VALUES ('$id', '$date', '$message')";
+            $output = $connection->query($new_cmd);
+        }
+    }
+
+    function getComments($connections) {
+        $output = $connection->query("SELECT * FROM comments");
+        while ($new_row = $output->fetch_assoc()) {
+            echo "<div class='c-box'><p>";
+            echo $new_row['id'];
+            echo $new_row['date'];
+            echo $new_row['msg'];
+            echo "</p></div>";
+        }
+    }
+?>
+
